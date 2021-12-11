@@ -36,13 +36,13 @@ final class HeroListViewController: UIViewController {
     // MARK: - Private methods
     
     private func configureAppearance() {
-        tableView.delegate = self // иниц списка
-        tableView.dataSource = self // иниц от куда идет дата
-        tableView.backgroundColor = .clear // цвет строк списка
-        view.backgroundColor = .lightGray // цвет фона
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        view.backgroundColor = .lightGray
     }
     
-    private func downloadHeroesList() { //загружается список
+    private func downloadHeroesList() {
         networkService.downloadHeroList(completed: { [weak self] heroList in
             self?.heroes = heroList.sorted(by: { $1.localizedName > $0.localizedName })
             self?.tableView.reloadData()
@@ -54,14 +54,14 @@ final class HeroListViewController: UIViewController {
 
 extension HeroListViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //настройка строк в списке
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.backgroundColor = .clear
         cell.textLabel?.text = heroes[indexPath.row].localizedName.capitalized
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // количесво строк
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return heroes.count
     }
     
