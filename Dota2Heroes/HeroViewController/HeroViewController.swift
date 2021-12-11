@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeroViewController: UIViewController {
+final class HeroViewController: UIViewController {
     
     // MARK: - Constants
     

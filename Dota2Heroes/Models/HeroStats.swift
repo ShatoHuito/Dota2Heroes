@@ -28,6 +28,3 @@ struct HeroStats: Decodable, Hashable {
     }
 }
 
-extension HeroStats: Equatable {
-    
-}
